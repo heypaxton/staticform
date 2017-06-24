@@ -1,0 +1,3 @@
+defmodule Staticformio.Repo do
+  use Ecto.Repo, otp_app: :staticformio
+end
