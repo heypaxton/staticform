@@ -21,6 +21,7 @@ config :staticformio, Staticformio.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+
 # Configure your database
 config :staticformio, Staticformio.Repo,
   adapter: Ecto.Adapters.Postgres,
