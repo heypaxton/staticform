@@ -1,0 +1,53 @@
+<section id="content" class="m-t-lg wrapper-md animated fadeInUp">    
+  <div class="container aside-xxl">
+    <a class="navbar-brand block" href="index.html">Notebook</a>
+    <section class="panel panel-default bg-white m-t-lg">
+      <header class="panel-heading text-center">
+        <strong>Sign in</strong>
+      </header>
+      
+      <%= form_for @conn, session_path(@conn, :create), [as: :session, class: "panel-body wrapper-lg"], fn f  -> %>
+
+        <% login_field = Coherence.Config.login_field %>
+        <div class="form-group">
+          <%= required_label f, login_field, class: "control-label" %>
+          <%= text_input f, login_field, class: "form-control input-lg", required: "" %>
+          <%= error_tag f, login_field %>
+        </div>
+
+        <div class="form-group">
+          <%= required_label f, :password, class: "control-label" %>
+          <%= password_input f, :password, class: "form-control input-lg", required: "" %>
+          <%= error_tag f, :password %>
+        </div>
+
+        <%= if @remember do %>
+          <div class="form-group">
+            <input type="checkbox"  name="remember"> Remember Me?
+          </div>
+          <br />
+        <% end %>
+
+        <div class="form-group">
+          <%= submit "Sign In", class: "btn btn-primary" %>
+          <%= link "Cancel", to: Coherence.Config.logged_out_url("/"), class: "btn" %>
+        </div>
+
+        <div class="line line-dashed"></div>
+        <div class="form-group">
+          <%= coherence_links(@conn, :new_session) %>
+        </div>
+      <% end %>
+      
+    </section>
+  </div>
+</section>
+<!-- footer -->
+<footer id="footer">
+  <div class="text-center padder">
+    <p>
+      <small>StaticForm.io<br>&copy; 2017</small>
+    </p>
+  </div>
+</footer>
+
